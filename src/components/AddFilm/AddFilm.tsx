@@ -1,40 +1,61 @@
 import { useState } from "react"
 import { Film } from "../../Types/Types"
-import { FilmInput } from "./FilmInput/FilmInput"
 import { FilmList } from "./FilmList/FilmsList"
+import { FilmInput } from "./FilmInput/FilmInput"
 
 export const AddFilm = () => {
   const [films, setFilms] = useState<Film[]>([]);
 
-  const onAddFilm = (title: string) => {
+  const onAddFilm = (newFilmString: string) => {
     const newFilm: Film = {
       id: Date.now(),
-      title,
-      watched: false
+      title: newFilmString,
+      watched: false,
+      reaction: null
     };
     setFilms([...films, newFilm]);
   };
 
   const onDeleteFilm = (id: number) => {
-    setFilms(films.filter(f => f.id !== id));
+    setFilms(films.filter(film => film.id !== id));
   };
 
   const toggleWatched = (id: number) => {
     setFilms(
-      films.map(f =>
-        f.id === id ? { ...f, watched: !f.watched } : f
+      films.map(film =>
+        film.id === id
+          ? { ...film, watched: !film.watched, reaction: null }
+          : film
+      )
+    );
+  };
+
+  const setLike = (id: number) => {
+    setFilms(
+      films.map(film =>
+        film.id === id ? { ...film, reaction: "like" } : film
+      )
+    );
+  };
+
+  const setDislike = (id: number) => {
+    setFilms(
+      films.map(film =>
+        film.id === id ? { ...film, reaction: "dislike" } : film
       )
     );
   };
 
   return (
-    <div>
-      <h1>Films</h1>
+    <div className="container">
+      <h1>My top films:</h1>
       <FilmInput onAddFilm={onAddFilm} />
       <FilmList
         films={films}
         onDeleteFilm={onDeleteFilm}
         toggleWatched={toggleWatched}
+        setLike={setLike}
+        setDislike={setDislike}
       />
     </div>
   );
