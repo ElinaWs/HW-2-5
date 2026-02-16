@@ -17,7 +17,7 @@ export const FilmItem = ({
   setDislike
 }: FilmItemProps) => {
   return (
-    <div>
+    <div className="film-item">
       <span>{film.title}</span>
 
       <input

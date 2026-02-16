@@ -11,12 +11,18 @@ export default function LikeDislike({
 }: LikeDislikeProps) {
   return (
     <div>
-      <button onClick={onLike}>
-        {reaction === "like" ? "Liked" : "Like"}
+      <button
+        onClick={onLike}
+        className={reaction === "like" ? "like" : ""}
+      >
+        Like
       </button>
 
-      <button onClick={onDislike}>
-        {reaction === "dislike" ? "Disliked" : "Dislike"}
+      <button
+        onClick={onDislike}
+        className={reaction === "dislike" ? "dislike" : ""}
+      >
+        Dislike
       </button>
     </div>
   );

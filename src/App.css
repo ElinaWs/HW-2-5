@@ -40,3 +40,76 @@
 .read-the-docs {
   color: #888;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #ffe4ec;
+  padding: 24px 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 320px;
+}
+
+h1 {
+  text-align: center;
+  color: #d63384;
+}
+
+input[type="text"] {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #f3a6c8;
+  outline: none;
+}
+
+button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #f3a6c8;
+  color: white;
+  font-weight: 500;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.film-item {
+  background: #ffd1e3;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.like {
+  background: #61ec88;
+  color: #068931;
+}
+
+.dislike {
+  background: #f56565;
+  color: #a11212;
+}
+
